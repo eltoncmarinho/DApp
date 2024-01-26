@@ -5,71 +5,71 @@ clear
 echo " "
 echo ">>>>> Início de Serviço - Instalar Módulos"
 
-pushd /home/provchain/app/apiserver
+pushd /home/provchain/app/apiserver 
     # sudo npm audit fix --force
     sudo npm init 
     echo " "
     echo ">>> express"
-    sudo npm install --no-fund  express --save 
+    sudo npm install express --save 
     echo " "
     echo ">>> handlebars"
-    sudo npm install --no-fund   handlebars --save 
+    sudo npm install  handlebars --save 
     echo " "
     echo ">>> express-handlebars"
-    sudo npm install --no-fund   express-handlebars --save 
+    sudo npm install  express-handlebars --save 
     echo " "
     echo ">>> express-session"
-    sudo npm install --no-fund   express-session --save 
+    sudo npm install  express-session --save 
     echo " "
     echo ">>> jquery"
-    sudo npm install --no-fund   jquery --save 
+    sudo npm install  jquery --save 
 
     echo " "
     echo ">>> connect-flash"
-    sudo npm install --no-fund   connect-flash --save 
+    sudo npm install  connect-flash --save 
     echo " "
     echo ">>> ipware"
-    sudo npm install --no-fund   ipware --save 
+    sudo npm install  ipware --save 
     echo " "
     echo ">>> geoip-lite"
-    sudo npm install --no-fund   geoip-lite --save 
+    sudo npm install  geoip-lite --save 
     echo " "
     echo ">>> uuid"
-    sudo npm install --no-fund   uuid --save
+    sudo npm install  uuid --save
 
     echo " "
     echo ">>> navigator"
-    sudo npm install --no-fund   navigator --save 
+    sudo npm install  navigator --save 
     echo " "
     echo ">>> ip"
-    sudo npm install --no-fund   ip --save 
+    sudo npm install  ip --save 
 
     echo " "
     echo ">>> fabric-ca-client"
-    sudo npm install --no-fund   fabric-ca-client --save
+    sudo npm install  fabric-ca-client --save
     echo " "
     echo ">>> fabric-network"
-    sudo npm install --no-fund   fabric-network --save
+    sudo npm install  fabric-network --save
 
     #npm install -g nodemon
 
     echo " "
     echo ">>> @popperjs/core"
-    sudo npm install --no-fund   @popperjs/core --save
+    sudo npm install  @popperjs/core --save
 
     echo " "
     echo ">>> bootstrap"
-    sudo npm install --no-fund   bootstrap --save
+    sudo npm install  bootstrap --save
 popd 
 
 pushd /home/provchain/app/apiserver/public/
     echo " "
     echo ">>> @popperjs/core"
-    sudo npm install --no-fund   @popperjs/core --save
+    sudo npm install  @popperjs/core --save
 
     echo " "
     echo ">>> bootstrap"
-    sudo npm install --no-fund   bootstrap --save
+    sudo npm install  bootstrap --save
 popd
 
 apt update 

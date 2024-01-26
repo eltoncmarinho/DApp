@@ -26,7 +26,7 @@ fi
 #sudo $RAIZ/provchain/fabric-samples/test-network/network.sh prereq
 
 
-export RAIZ=/home/dapp
+export RAIZ=/home/DApp
 echo " "
 echo ">>>>>  Remover bloco genesis caso exista"
 if $RAIZ/provchain/fabric-samples/test-network/mychannel.block; then 
@@ -50,17 +50,17 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Tira a rede do ar, se estiver no ar..."
 $RAIZ/provchain/fabric-samples/test-network/network.sh down
 echo " "
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Cria o canal com banco de estado CouchDB"
-$RAIZ/provchain/fabric-samples/test-network/network.sh up createChannel -ca -s couchdb
+$RAIZ/provchain/fabric-samples/test-network/network.sh up createChannel -c mychannel -s couchdb 
 echo " "
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Instala a chaincode em todos os nós do canal mychannel. Aqui é o foco da PROVChain" 
-export RAIZ=/home/dapp
+export RAIZ=/home/DApp
 CC_SRC_LANGUAGE=${1:-"javascript"}
 CC_SRC_LANGUAGE=`echo "$CC_SRC_LANGUAGE" | tr [:upper:] [:lower:]`
-CC_SRC_PATH="/home/dapp/chaincode/provchain/javascript/lib/"
-$RAIZ/provchain/fabric-samples/test-network/network.sh deployCC -ccn provchain -ccl ${CC_SRC_LANGUAGE} -ccv 1 -ccs auto -ccp ${CC_SRC_PATH} -cci inicializarLivroRazao  -r -d -verbose
+CC_SRC_PATH="/home/DApp/chaincode/provchain/javascript/"
+$RAIZ/provchain/fabric-samples/test-network/network.sh deployCC -ccn provchain -ccl ${CC_SRC_LANGUAGE} -ccv 1 -ccs 1 -ccp ${CC_SRC_PATH} -cci inicializarLivroRazao  -r 5 -d 3 -verbose
 
 
-export RAIZ=/home/provchain
+export RAIZ=/home/DApp
 echo " "
 echo ">>>>> Habilitar usuarios "
 pushd $RAIZ/provchain/apiserver
