@@ -11,7 +11,7 @@ fi
 
 echo "Subir aplicativo"
 
-pushd /home/provchain/app/apiserver
+pushd /home/DApp/provchain/apiserver
     if $1; then 
         nohup node apiserver.js &
     else 

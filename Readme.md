@@ -12,7 +12,7 @@ Para executar este modelo siga os seguintes passos para instalação local ou VP
 3 - Ir para o diretório /home e entrar em modo root (sudo -su) <br>
   
 4 - Baixar do gitHub, em diretório a sua escolha, <br>
-  git clone https://github.com/eltoncmarinho/provchain.git <br>
+  git clone https://github.com/eltoncmarinho/DApp.git <br>
     
 5 - Dentro desse diretório vá para provchain/app/apiserver e ajuste o endereço da url ( <<ip vps>> ) em <i>apiserver.js</i> e a porta de acesso ( <<porta>> ).<br>
 

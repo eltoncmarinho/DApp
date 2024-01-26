@@ -50,7 +50,7 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Tira a rede do ar, se estiver no ar..."
 $RAIZ/provchain/fabric-samples/test-network/network.sh down
 echo " "
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Cria o canal com banco de estado CouchDB"
-$RAIZ/provchain/fabric-samples/test-network/network.sh up createChannel -c mychannel -s couchdb 
+$RAIZ/provchain/fabric-samples/test-network/network.sh up createChannel -verbose -ca -s couchdb 
 echo " "
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Instala a chaincode em todos os nós do canal mychannel. Aqui é o foco da PROVChain" 
 export RAIZ=/home/DApp
