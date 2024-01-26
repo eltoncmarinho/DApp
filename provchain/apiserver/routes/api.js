@@ -62,7 +62,7 @@ Handlebars.registerHelper('default', function (value, options) {
 router.get('/busca/:key', async function (req, res) {
         console.log("===> /api/busca/" + req.params.key);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -110,7 +110,7 @@ router.get('/consulta', async function (req, res) {
 router.get('/consulta/blockchain', async function (req, res) {
         console.log("===> /api/consulta/blockchain");
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -158,7 +158,7 @@ router.get('/consulta/blockchain', async function (req, res) {
 router.get('/consulta/:tipoRegistro', async function (req, res) {
         console.log("===> /api/consulta/" + req.params.tipoRegistro);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -223,7 +223,7 @@ router.get('/consulta/:tipoRegistro', async function (req, res) {
 router.get('/consulta/:tipoRegistro/:key', async function (req, res) {
         console.log("===> /api/consulta/" + req.params.tipoRegistro + "/" + req.params.key);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -388,7 +388,7 @@ router.get('/consulta/:tipoRegistro/:key', async function (req, res) {
 router.get('/excluidos', async function (req, res) {
         console.log("===> /api/excluidos/");
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -437,7 +437,7 @@ router.get('/excluidos', async function (req, res) {
 router.get('/listar_observacoes/:key', async function (req, res) {
         console.log("===> /api/listar_observacoes/" + req.params.key);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -496,7 +496,7 @@ router.get('/listar_observacoes', async function (req, res) {
 router.get('/historico/:key', async function (req, res) {
         console.log('===> /api/historico/' + req.params.key);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -539,7 +539,7 @@ router.get('/historico/:key', async function (req, res) {
 router.get('/historico/:tipoRegistro/:key', async function (req, res) {
         console.log('===> /api/historico/' + req.params.tipoRegistro + '/' + req.params.key);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -703,7 +703,7 @@ router.get('/historico/:tipoRegistro/:key', async function (req, res) {
 
 //                 try {
 //                         // load the network configuration
-//                         const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+//                         const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
 //                         let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
 //                         // Create a new file system based wallet for managing identities.
@@ -803,7 +803,7 @@ router.post('/criar_Projeto', async function (req, res) {
 
                 try {
                         // load the network configuration
-                        const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                        const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                         let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                         // Create a new file system based wallet for managing identities.
@@ -880,7 +880,7 @@ router.post('/criar_Observacao', async function (req, res) {
         console.log("===> /api/criar_Observacao/");
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -994,7 +994,7 @@ router.post('/criar_Horizonte', async function (req, res) {
         console.log("===> /api/criar_Horizonte/");
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1181,7 +1181,7 @@ router.get('/criar/Horizonte/:key', async function (req, res) {
         console.log("===> /api/criar/Horizonte/" + req.params.key);
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1227,7 +1227,7 @@ router.post('/criar_Amostra', async function (req, res) {
         console.log("===> /api/criar_Amostra/");
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1298,7 +1298,7 @@ router.get('/criar/Amostra/:key', async function (req, res) {
         console.log("===> /api/criar/Amostra/" + req.params.key);
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1344,7 +1344,7 @@ router.post('/criar_Analise', async function (req, res) {
         console.log("===> /api/criar_Analise/");
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1417,7 +1417,7 @@ router.get('/criar/Analise/:key', async function (req, res) {
         console.log("===> /api/criar/Analise/" + req.params.key);
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1464,7 +1464,7 @@ router.get('/criar/Analise/:key', async function (req, res) {
 // router.post('/alterar_Orgao', async function (req, res) {
 //         console.log("===> /alterar_Orgao");
 //         try {
-//                 const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+//                 const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
 //                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 //                 // Create a new file system based wallet for managing identities.
 //                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -1545,7 +1545,7 @@ router.get('/criar/Analise/:key', async function (req, res) {
 router.post('/alterar_Projeto', async function (req, res) {
         console.log("===> /alterar_Projeto");
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -1618,7 +1618,7 @@ router.post('/alterar_Observacao', async function (req, res) {
         console.log("===> /alterar_Observacao");
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1735,7 +1735,7 @@ router.post('/alterar_Horizonte', async function (req, res) {
 
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1907,7 +1907,7 @@ router.post('/alterar_Amostra', async function (req, res) {
 
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -1981,7 +1981,7 @@ router.post('/alterar_Analise', async function (req, res) {
 
         try {
                 // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
                 // Create a new file system based wallet for managing identities.
@@ -2057,7 +2057,7 @@ router.get('/alterar/:tipoRegistro', async function (req, res) {
 router.get('/alterar/:tipoRegistro/:key', async function (req, res) {
         console.log("===> /api/alterar/" + req.params.tipoRegistro + "/" + req.params.key);
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -2176,7 +2176,7 @@ router.get('/excluir/:tipoRegistro/:key', async function (req, res) {
         console.log("===> /api/excluir/" + req.params.tipoRegistro + '/' + req.params.key);
 
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -2263,7 +2263,7 @@ router.get('/excluir/:tipoRegistro/:key', async function (req, res) {
 router.post('/associar/OrgaoProjeto', async function (req, res) {
         console.log('/associar/OrgaoProjeto')
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -2333,7 +2333,7 @@ router.get('/associar/OrgaoProjeto/:chave', async function (req, res) {
         console.log("===> /api/associar/OrgaoProjeto/" + req.params.chave);
 
         try {
-                const ccpPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
                 // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');

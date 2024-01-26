@@ -57,7 +57,8 @@ export RAIZ=/home/DApp
 CC_SRC_LANGUAGE=${1:-"javascript"}
 CC_SRC_LANGUAGE=`echo "$CC_SRC_LANGUAGE" | tr [:upper:] [:lower:]`
 CC_SRC_PATH="/home/DApp/chaincode/provchain/javascript/"
-$RAIZ/provchain/fabric-samples/test-network/network.sh deployCC -ccn provchain -ccl ${CC_SRC_LANGUAGE} -ccv 1 -ccs 1 -ccp ${CC_SRC_PATH} -cci inicializarLivroRazao  -r 5 -d 3 -verbose
+$RAIZ/provchain/fabric-samples/test-network/network.sh deployCC -ccn provchain -ccv 1 -cci inicializarLivroRazao -ccl ${CC_SRC_LANGUAGE} -ccp ${CC_SRC_PATH}
+#$RAIZ/provchain/fabric-samples/test-network/network.sh deployCC -ccn provchain -ccl ${CC_SRC_LANGUAGE} -ccv 1 -ccs 1 -ccp ${CC_SRC_PATH} -cci inicializarLivroRazao  -r 5 -d 3 -verbose
 
 
 export RAIZ=/home/DApp

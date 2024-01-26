@@ -107,7 +107,7 @@ Handlebars.registerHelper('default', function(value, options) {
 const { Gateway,Wallets } = require('fabric-network');
 const path = require('path');
 const fs = require('fs');
-const ccpPath = path.resolve(__dirname, '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+const ccpPath = path.resolve(__dirname, '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
 const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 
 // Public
@@ -149,7 +149,7 @@ app.get("/alterarProjeto", (req, res) => {
 app.get("/adicionarObservacao/:key", async function (req, res) {
         try {
         // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8')); 
         // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -200,7 +200,7 @@ app.get("/adicionarObservacao/:key", async function (req, res) {
 app.get("/adicionarAmostra/:key", async function (req, res) {
         try {
         // load the network configuration
-                const ccpPath = path.resolve(__dirname, '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+                const ccpPath = path.resolve(__dirname, '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
                 let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8')); 
         // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
@@ -257,5 +257,5 @@ const requestListener = function (req, res) {
 
 server.listen(port, () => {
         console.log(`Aplicativo ouvindo em http://${addr}:${port}`)
-        console.log("© 2022 Copyright: Élton Carneiro Marinho")
+        console.log("© 2022 Copyright: Élton Carneiro Marinho") 
 });
