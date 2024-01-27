@@ -1,6 +1,6 @@
 # PROVChain - Prova de conceito da arquitetura
 
-<b>PROVA DE CONCEITO do Hyperledger Fabric no dominio de solos</b><p>
+<b>PROVA DE CONCEITO do PROVChain no domínio de solos</b><p>
 
 Para executar este modelo siga os seguintes passos para instalação local ou VPS Linux:<br>
 
