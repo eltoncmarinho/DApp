@@ -13,12 +13,12 @@ var addr = "";
 
 // if (ipLido != host_address_privado) {                  // ip privado da AWS
 if (os.networkInterfaces().eth0) {                  // ip privado da AWS
-        addr = host_address_publico;                     
+        addr = host_address_publico;
         port = 80;
 } else {
         addr = "127.0.0.1";                      // localhost
         port = 8080;
-}        
+}
 
 console.log("addr: " + addr);
 console.log("==============================================");
@@ -60,10 +60,10 @@ app.use((req, res, next) => {
         res.locals.error_msg = req.flash("error_msg")
         next()
 })
-   
+
 global.user = 'appUser'
 global.user_name = 'Élton Carneiro Marinho'
-global.software_version = 'PROVChain Version 01.01'
+global.software_version = 'PROVChainWEB Version 01.01'
 global.software_browser = navigator.userAgent
 
 // Handlebars
@@ -74,7 +74,7 @@ Handlebars.registerHelper('ifeq', function (a, b, options) {
         if (a == b) { return options.fn(this); }
         return options.inverse(this);
 });
-         
+
 Handlebars.registerHelper('ifnoteq', function (a, b, options) {
         if (a != b) { return options.fn(this); }
         return options.inverse(this);
@@ -114,12 +114,12 @@ const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
 app.use(express.static(path.join(__dirname, "public")))
 
 const {v4:uuid} = require('uuid');
- 
+
 //***************************************************************************************************************************
 // Rotas
 
 app.get("/", async function(req, res) {
-        res.render('home', {titulo_pagina: "PROVChain - Prova de Conceito"});
+        res.render('home', {titulo_pagina: "PROVChainWEB - Prova de Conceito"});
 })
 
 app.get("/listar/:tipoRegistro", (req, res) => {
@@ -150,12 +150,12 @@ app.get("/adicionarObservacao/:key", async function (req, res) {
         try {
         // load the network configuration
                 const ccpPath = path.resolve(__dirname, '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
-                let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8')); 
+                let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
         // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
                 const wallet = await Wallets.newFileSystemWallet(walletPath);
                 console.log(`Wallet path: ${walletPath}`);
-        
+
         // Check to see if we've already enrolled the user.
                 const identity = await wallet.get('appUser');
                 if (!identity) {
@@ -163,17 +163,17 @@ app.get("/adicionarObservacao/:key", async function (req, res) {
                         console.log('Run the registerUser.js application before retrying');
                         return;
                 }
-        
+
         // Create a new gateway for connecting to our peer node.
                 const gateway = new Gateway();
                 await gateway.connect(ccp, { wallet, identity: 'appUser', discovery: { enabled: true, asLocalhost: true } });
-        
+
                 // Get the network (channel) our contract is deployed to.
                 const network = await gateway.getNetwork('mychannel');
-        
+
                 // Get the contract from the network.
                 const contract = network.getContract('provchain');
-                 
+
 
         let yourDate = new Date();
         const result = await contract.submitTransaction('consultar_identificador', req.params.key);
@@ -183,8 +183,8 @@ app.get("/adicionarObservacao/:key", async function (req, res) {
                 projeto: JSON.parse(result),
         })
         // Disconnect from the gateway.
-        await gateway.disconnect();       
-        
+        await gateway.disconnect();
+
         } catch (error) {
                 let yourDate = new Date();
                 req.flash("error_msg", "Houve um erro ao submeter a transação");
@@ -194,19 +194,19 @@ app.get("/adicionarObservacao/:key", async function (req, res) {
                         hoje: yourDate.toISOString().split('T')[0],
                         projeto: JSON.parse(result),
                 });
-        }        
+        }
 })
-                
+
 app.get("/adicionarAmostra/:key", async function (req, res) {
         try {
         // load the network configuration
                 const ccpPath = path.resolve(__dirname, '..', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
-                let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8')); 
+                let ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
         // Create a new file system based wallet for managing identities.
                 const walletPath = path.join(process.cwd(), 'wallet');
                 const wallet = await Wallets.newFileSystemWallet(walletPath);
                 console.log(`Wallet path: ${walletPath}`);
-        
+
         // Check to see if we've already enrolled the user.
                 const identity = await wallet.get('appUser');
                 if (!identity) {
@@ -214,17 +214,17 @@ app.get("/adicionarAmostra/:key", async function (req, res) {
                         console.log('Run the registerUser.js application before retrying');
                         return;
                 }
-        
+
         // Create a new gateway for connecting to our peer node.
                 const gateway = new Gateway();
                 await gateway.connect(ccp, { wallet, identity: 'appUser', discovery: { enabled: true, asLocalhost: true } });
-        
+
                 // Get the network (channel) our contract is deployed to.
                 const network = await gateway.getNetwork('mychannel');
-        
+
                 // Get the contract from the network.
                 const contract = network.getContract('provchain');
-                 
+
 
         let yourDate = new Date();
         const result = await contract.submitTransaction('consultar_identificador', req.params.key);
@@ -233,8 +233,8 @@ app.get("/adicionarAmostra/:key", async function (req, res) {
                 projeto: JSON.parse(result),
         })
         // Disconnect from the gateway.
-        await gateway.disconnect();       
-        
+        await gateway.disconnect();
+
         } catch (error) {
                 let yourDate = new Date();
                 req.flash("error_msg", "Houve um erro ao submeter a transação");
@@ -244,12 +244,12 @@ app.get("/adicionarAmostra/:key", async function (req, res) {
                         hoje: yourDate.toISOString().split('T')[0],
                         projeto: JSON.parse(result),
                 });
-        }        
+        }
 })
-                
+
 // ***************************************************************************************************************
 // Grupos de Rotas
-app.use('/api', api);  
+app.use('/api', api);
 
 const requestListener = function (req, res) {
         res.setHeader("Content-Type", "text/html");
@@ -257,5 +257,5 @@ const requestListener = function (req, res) {
 
 server.listen(port, () => {
         console.log(`Aplicativo ouvindo em http://${addr}:${port}`)
-        console.log("© 2022 Copyright: Élton Carneiro Marinho") 
+        console.log("© 2022 Copyright: Élton Carneiro Marinho")
 });

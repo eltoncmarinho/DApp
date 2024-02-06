@@ -4,7 +4,7 @@ clear
 
 echo ">>>>> Início de Serviço - Criar canal e instalar nele o Contrato Inteligente"
 
-export MSYS_NO_PATHCONV=1
+#export MSYS_NO_PATHCONV=1
 
 set -e
 starttime=$(date +%s)

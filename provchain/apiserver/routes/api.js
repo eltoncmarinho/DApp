@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
-// Solução - inicio - Elton 
+// Solução - inicio - Elton
 router.use(express.urlencoded({ extended: true }))
 router.use(express.json())
 // Solução - termino - Elton
@@ -58,7 +58,7 @@ Handlebars.registerHelper('default', function (value, options) {
 });
 
 // ***************************************************************************************************************
-// Consultas 
+// Consultas
 router.get('/busca/:key', async function (req, res) {
         console.log("===> /api/busca/" + req.params.key);
         try {
@@ -140,7 +140,7 @@ router.get('/consulta/blockchain', async function (req, res) {
                 // console.log ("data_criacao: " + JSON.parse(result)[2].data_criacao);
                 // console.log ("data_criacao: " + JSON.parse(result)[2]);
                 // console.log ("data_criacao: " + JSON.parse(result)[2].Record);
-                
+
                 // console.log ("JSON.parse(result)[1].tipoDoc: " + JSON.parse(result).tipoDoc);
                 // console.log ("JSON.parse(result)[1].key: " + JSON.parse(result).key);
 
@@ -150,7 +150,7 @@ router.get('/consulta/blockchain', async function (req, res) {
         } catch (error) {
                 console.log('Não foi possível acessar a rotina 32: ' + error);
                 req.flash('error_msg', 'Não foi possível acessar a rotina 32');
-                res.render('home', { titulo_pagina: "PROVChain - Prova de Conceito" });
+                res.render('home', { titulo_pagina: "PROVChainWEB - Prova de Conceito" });
         }
 
 });
@@ -183,7 +183,7 @@ router.get('/consulta/:tipoRegistro', async function (req, res) {
                 const contract = network.getContract('provchain');
 
                 // Ajustando titulo
-                switch (req.params.tipoRegistro) { 
+                switch (req.params.tipoRegistro) {
                         case 'Orgao': titulo_pagina = 'Lista os Órgãos Executores';
                                 break;
                         case 'Projeto': titulo_pagina = 'Lista os Projetos cadastrados';
@@ -215,7 +215,7 @@ router.get('/consulta/:tipoRegistro', async function (req, res) {
         } catch (error) {
                 console.log('Não foi possível acessar a rotina 0: ' + error);
                 req.flash('error_msg', 'Não foi possível acessar a rotina 0');
-                res.render('home', { titulo_pagina: "PROVChain - Prova de Conceito" });
+                res.render('home', { titulo_pagina: "PROVChainWEB - Prova de Conceito" });
         }
 
 });
@@ -299,13 +299,13 @@ router.get('/consulta/:tipoRegistro/:key', async function (req, res) {
                                                         observacao_key: JSON.parse(result).key_observacao,
                                                 });
                                         } else {
-                                                const resultHorizontes = await contract.evaluateTransaction('consultar_dadosAssociados', req.params.key, 'Horizonte'); 
+                                                const resultHorizontes = await contract.evaluateTransaction('consultar_dadosAssociados', req.params.key, 'Horizonte');
                                                 res.render('home', {
                                                         tipoRegistro: 'Horizonte',
                                                         titulo_pagina: "Lista os Horizontes cadastrados",
-                                                        result: JSON.parse(result), // Dados da Observacao 
+                                                        result: JSON.parse(result), // Dados da Observacao
                                                         resultKey: req.params.key,
-                                                        resultHorizonte: JSON.parse(resultHorizontes), // Lista de Horizontes do Observacao 
+                                                        resultHorizonte: JSON.parse(resultHorizontes), // Lista de Horizontes do Observacao
                                                         observacao_key: JSON.parse(result).key_observacao,
                                                 });
                                         }
@@ -324,17 +324,17 @@ router.get('/consulta/:tipoRegistro/:key', async function (req, res) {
                                                         proveniencia: JSON.parse(resultproveniencia),
                                                 });
                                         } else {
-                                                const resultAmostras = await contract.evaluateTransaction('consultar_dadosAssociados', req.params.key, 'Amostra'); 
+                                                const resultAmostras = await contract.evaluateTransaction('consultar_dadosAssociados', req.params.key, 'Amostra');
                                                 res.render('home', {
                                                         tipoRegistro: 'Amostra',
                                                         titulo_pagina: "Lista das Amostras cadastradas",
-                                                        result: JSON.parse(result), 
+                                                        result: JSON.parse(result),
                                                         resultKey: req.params.key,
-                                                        resultAmostra: JSON.parse(resultAmostras), // Lista de Horizontes do Observacao 
+                                                        resultAmostra: JSON.parse(resultAmostras), // Lista de Horizontes do Observacao
                                                 });
                                         }
                                         break;
-                                }                    
+                                }
                                 case 'Analise': {
                                         if (JSON.parse(result).tipoDoc === 'Analise') {
                                                 const resultAnalise = await contract.evaluateTransaction("consultar_identificador", JSON.parse(result).key_amostra);
@@ -348,17 +348,17 @@ router.get('/consulta/:tipoRegistro/:key', async function (req, res) {
                                                         proveniencia: JSON.parse(resultproveniencia),
                                                 });
                                         } else {
-                                                const resultAnalises = await contract.evaluateTransaction('consultar_dadosAssociados', req.params.key, 'Analise'); 
+                                                const resultAnalises = await contract.evaluateTransaction('consultar_dadosAssociados', req.params.key, 'Analise');
                                                 res.render('home', {
                                                         tipoRegistro: 'Analise',
                                                         titulo_pagina: "Lista das Análises realizadas",
-                                                        result: JSON.parse(result), 
+                                                        result: JSON.parse(result),
                                                         resultKey: req.params.key,
-                                                        resultAnalise: JSON.parse(resultAnalises), // Lista de Horizontes do Observacao 
+                                                        resultAnalise: JSON.parse(resultAnalises), // Lista de Horizontes do Observacao
                                                 });
                                         }
                                         break;
-                                }                                                          
+                                }
                                 case 'Proveniencia': {
                                         const result_elemento = await contract.evaluateTransaction('consultar_identificador', JSON.parse(result).key_elemento);
                                         res.render('api/proveniencia/' + JSON.parse(result_elemento).tipoDoc, {
@@ -429,7 +429,7 @@ router.get('/excluidos', async function (req, res) {
         } catch (error) {
                 console.log('Não foi possível acessar a rotina 0y: ' + error);
                 req.flash('error_msg', 'Não foi possível acessar a rotina 0y');
-                res.render('home', { titulo_pagina: "PROVChain - Prova de Conceito" });
+                res.render('home', { titulo_pagina: "PROVChainWEB - Prova de Conceito" });
         }
 
 });
@@ -484,7 +484,7 @@ router.get('/listar_observacoes/:key', async function (req, res) {
         } catch (error) {
                 console.log("FAIL: " + error);
                 req.flash("error_msg", ' Observacao ( ' + req.params.key + " ) inválido.")
-                res.render('home', { titulo_pagina: "PROVChain - Prova de Conceito" });
+                res.render('home', { titulo_pagina: "PROVChainWEB - Prova de Conceito" });
         }
 });
 
@@ -749,8 +749,8 @@ router.get('/historico/:tipoRegistro/:key', async function (req, res) {
 //                                 req.body.tipo_instituicao,
 //                                 req.body.abrangencia,
 //                                 // Proveniencia
-//                                 user,               
-//                                 user_name,          
+//                                 user,
+//                                 user_name,
 //                                 ip.address(),
 //                                 geoLocalizacao.range,
 //                                 geoLocalizacao.country,
@@ -901,7 +901,7 @@ router.post('/criar_Observacao', async function (req, res) {
 
                 // Get the network (channel) our contract is deployed to.
                 const network = await gateway.getNetwork('mychannel');
-                
+
                 // Get the contract from the network.
                 const contract = network.getContract('provchain');
 
@@ -1081,7 +1081,7 @@ router.post('/criar_Horizonte', async function (req, res) {
                 if (!req.body.transicao_superior) { req.body.transicao_superior = ""; };
                 if (!req.body.espessura) { req.body.espessura = ""; };
 
-                // Dados do Horizonte                
+                // Dados do Horizonte
                 const resultHorizonte = await contract.submitTransaction('incAlt_Horizonte',
                         req.body.key_horizonte,
                         req.body.key_proveniencia,
@@ -1292,7 +1292,7 @@ router.post('/criar_Amostra', async function (req, res) {
                 console.error(`Failed to submit transaction: ${error}`);
                 res.redirect("/api/consulta/Amostra/" + req.body.key_horizonte);
         };
-});        
+});
 
 router.get('/criar/Amostra/:key', async function (req, res) {
         console.log("===> /api/criar/Amostra/" + req.params.key);
@@ -1870,7 +1870,7 @@ router.post('/alterar_Horizonte', async function (req, res) {
                         req.body.outros_textura,
                         req.body.outros_cascalho,
                         req.body.comentario,
-                        // Proveniencia 
+                        // Proveniencia
                         user,
                         user_name,
                         ip.address(),
@@ -1934,7 +1934,7 @@ router.post('/alterar_Amostra', async function (req, res) {
                 const contract = network.getContract('provchain');
 
                 // Submit the specified transaction.
-    
+
                 const resultProveniencia = await contract.evaluateTransaction('consultar_identificador', req.body.key_amostra);
                 req.body.key_proveniencia = JSON.parse(resultProveniencia).key_proveniencia;
 
@@ -1944,7 +1944,7 @@ router.post('/alterar_Amostra', async function (req, res) {
                         req.body.key_horizonte,
                         req.body.nome,
                         req.body.comentario,
-                        // Proveniencia 
+                        // Proveniencia
                         user,
                         user_name,
                         ip.address(),
@@ -2008,7 +2008,7 @@ router.post('/alterar_Analise', async function (req, res) {
                 const contract = network.getContract('provchain');
 
                 // Submit the specified transaction.
-  
+
                 const resultProveniencia = await contract.evaluateTransaction('consultar_identificador', req.body.key_analise);
                 req.body.key_proveniencia = JSON.parse(resultProveniencia).key_proveniencia;
 
@@ -2018,7 +2018,7 @@ router.post('/alterar_Analise', async function (req, res) {
                         req.body.key_amostra,
                         req.body.nome,
                         req.body.resultado,
-                        // Proveniencia 
+                        // Proveniencia
                         user,
                         user_name,
                         ip.address(),
@@ -2074,7 +2074,7 @@ router.get('/alterar/:tipoRegistro/:key', async function (req, res) {
                 // Create a new gateway for connecting to our peer node.
                 const gateway = new Gateway();
                 await gateway.connect(ccp, { wallet, identity: 'appUser', discovery: { enabled: true, asLocalhost: true } });
-                
+
                 // Get the network (channel) our contract is deployed to.
                 const network = await gateway.getNetwork('mychannel');
 
@@ -2085,12 +2085,12 @@ router.get('/alterar/:tipoRegistro/:key', async function (req, res) {
                 let yourDate = new Date();
                 const result = await contract.evaluateTransaction('consultar_identificador', req.params.key);
                 if (JSON.parse(result).tipoDoc != undefined) {
-                        // Tratamento de alteração de observacao 
+                        // Tratamento de alteração de observacao
                         switch (req.params.tipoRegistro) {
                                 case 'Orgao':
                                         res.render(`api/atualizar/${req.params.tipoRegistro}`, {
                                                 result: JSON.parse(result),                             // result com dados do item parametro indicado
-                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel    
+                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel
                                                 tipoRegistro: req.params.tipoRegistro,                  //
                                                 descrito_coletado: user_name,                           //
                                                 projetos: JSON.parse(resultprojetos),                   // lista de projetos
@@ -2100,7 +2100,7 @@ router.get('/alterar/:tipoRegistro/:key', async function (req, res) {
                                         const prov = await contract.evaluateTransaction('consultar_identificador', JSON.parse(result).key_proveniencia);
                                         res.render(`api/atualizar/${req.params.tipoRegistro}`, {
                                                 result: JSON.parse(result),                             // result com dados do item parametro indicado
-                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel    
+                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel
                                                 tipoRegistro: req.params.tipoRegistro,                  //
                                                 proveniencia: JSON.parse(prov),
                                         })
@@ -2110,18 +2110,18 @@ router.get('/alterar/:tipoRegistro/:key', async function (req, res) {
                                         const dataProjeto = await contract.evaluateTransaction("consultar_identificador", JSON.parse(result).key_projeto);//.sort('key_observacao', 'desc');
                                         res.render(`api/atualizar/${req.params.tipoRegistro}`, {
                                                 result: JSON.parse(result),                             // result com dados do item parametro indicado
-                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel    
+                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel
                                                 tipoRegistro: req.params.tipoRegistro,                  //
                                                 descrito_coletado: user_name,                           //
                                                 projetos: JSON.parse(resultprojetos),                   // lista de projetos
-                                                projeto: JSON.parse(dataProjeto),                       // observacao - dados do projeto 
+                                                projeto: JSON.parse(dataProjeto),                       // observacao - dados do projeto
                                         })
                                         break;
                                 case 'Horizonte':
                                         const dataObservacao = await contract.evaluateTransaction("consultar_identificador", JSON.parse(result).key_observacao);
                                         res.render(`api/atualizar/${req.params.tipoRegistro}`, {
                                                 result: JSON.parse(result),                             // result com dados do item parametro indicado
-                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel    
+                                                resultKey: req.params.key,                              // caso observacao esteja sendo alterado usar esta variavel
                                                 tipoRegistro: req.params.tipoRegistro,                  //
                                                 dataObservacao: JSON.parse(dataObservacao),
                                         })
@@ -2131,23 +2131,23 @@ router.get('/alterar/:tipoRegistro/:key', async function (req, res) {
                                         const dataHorizonte = await contract.evaluateTransaction("consultar_identificador", JSON.parse(result).key_horizonte);
                                         // console.log("dataHorizonte: " + dataHorizonte)
                                         res.render(`api/atualizar/${req.params.tipoRegistro}`, {
-                                                result: JSON.parse(result),                             
-                                                resultKey: req.params.key,                              
-                                                tipoRegistro: req.params.tipoRegistro,                  
+                                                result: JSON.parse(result),
+                                                resultKey: req.params.key,
+                                                tipoRegistro: req.params.tipoRegistro,
                                                 dataHorizonte: JSON.parse(dataHorizonte),
                                         })
 
-                                        break;                                        
+                                        break;
                                 case 'Analise':
                                         const dataAmostra = await contract.evaluateTransaction("consultar_identificador", JSON.parse(result).key_amostra);
                                         res.render(`api/atualizar/${req.params.tipoRegistro}`, {
-                                                result: JSON.parse(result),                            
-                                                resultKey: req.params.key,                                  
-                                                tipoRegistro: req.params.tipoRegistro,                  
+                                                result: JSON.parse(result),
+                                                resultKey: req.params.key,
+                                                tipoRegistro: req.params.tipoRegistro,
                                                 dataAmostra: JSON.parse(dataAmostra),
                                         })
 
-                                        break;                                        
+                                        break;
                                 default: {
                                         req.flash("error_msg", req.params.tipoRegistro + " necessita de mais um parâmetro, ou foi declarado equivocadamente.")
                                         res.redirect('/');
@@ -2223,7 +2223,7 @@ router.get('/excluir/:tipoRegistro/:key', async function (req, res) {
                                 navigator.userAgent,
                         );
 
-                        // console.log('Transaction has been submitted');      
+                        // console.log('Transaction has been submitted');
                         req.flash("success_msg", "'" + JSON.parse(result).nome + "' excluido com sucesso - ID:" + req.params.key)
 
                         switch (JSON.parse(result).tipoDoc) {
@@ -2235,7 +2235,7 @@ router.get('/excluir/:tipoRegistro/:key', async function (req, res) {
                                         break;
                                 case 'Amostra':
                                         res.redirect('/api/consulta/' + req.params.tipoRegistro + "/" + JSON.parse(result).key_horizonte);
-                                        break;        
+                                        break;
                                 case 'Analise':
                                         res.redirect('/api/consulta/' + req.params.tipoRegistro + "/" + JSON.parse(result).key_amostra);
                                         break;
